@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <center>
+        <div class="container" id="beginning">
+            <h1>Your Review!😊 </h1>
+            <input type="text" placeholder="Full Name" name="full_name" class="username" required>
+            <br>
+            <span>Rate Us</span><br>
+            <button id="button1" onclick="ratings(this.id)" class="btn"><img src="emptyStar.svg" alt="" class="star" id="star1"></button>
+            <button id="button2" onclick="ratings(this.id)" class="btn"><img src="emptyStar.svg" alt="" class="star" id="star2"></button>
+            <button id="button3" onclick="ratings(this.id)" class="btn"><img src="emptyStar.svg" alt="" class="star" id="star3"></button>
+            <button id="button4" onclick="ratings(this.id)" class="btn"><img src="emptyStar.svg" alt="" class="star" id="star4"></button>
+            <button id="button5" onclick="ratings(this.id)" class="btn"><img src="emptyStar.svg" alt="" class="star" id="star5"></button><br>
+            <textarea name="" id="note" cols="50" rows="10" class="displayNone" placeholder="Add a note..."></textarea>
+            <br>
+            <button class="submit" onclick="submit(); exec('python index.py');">SUBMIT</button>
+        </div>
+        <!-- <div class="container displayNone" id="end">
+            <h1>😊</h1>
+            <h6>Thank you for you review!</h6>
+        </div> -->
+    </center>
+<!-- sweetalert.js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("JtSqaoemrRt2XZoLb");
+   })();
+</script>
+
+
+<script>
+
+function validate(){
+    let name = document.querySelector(".username");
+    let msg = document.querySelector(".displayNone");
+    let submit = document.querySelector(".submit");
+
+    submit.addEventListener("click", (e)=>{
+        e.preventDefault()
+
+        if(name.value == "" || msg.value == ""){
+            empty();
+        } else{
+            sendmail(name.value, msg.value)
+               success();
+               console.log("sent");
+
+        }
+
+    })
+}
+
+validate();
+
+function sendmail(name,msg){
+    emailjs.send("service_ttl15ng","template_fjio0qc",{
+    to_name: "Go-team",
+    from_name: name,
+    message: msg,
+});
+}
+
+
+
+      function success(){
+        swal({
+        title: "Good job!",
+        text: "SUCCESSFULLY SENT MESSAGE!",
+        icon: "success",
+        button: "OK!",
+});
+    }
+
+    function error(){
+        swal({
+        title: "Oops!",
+        text: "Something went wrong",
+        icon: "error",
+        button: "OK!",
+});
+    }
+
+    function empty(){
+        swal({
+        title: "Oops!",
+        text: "Input field are required",
+        icon: "error",
+        button: "OK!",
+});
+    }
+</script>
+  
+    
+
+</body>
+</html>

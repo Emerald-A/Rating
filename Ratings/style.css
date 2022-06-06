@@ -1,0 +1,66 @@
+body,html{
+    width: 100%;
+    margin: 0;
+    background: linear-gradient(to right, rgb(255, 239, 186), rgb(255, 255, 255));
+}
+.container{
+    width: 50%;
+    min-height: 200px;
+    position: relative;
+    border: 2px solid black;
+    margin-top: 5%;
+}
+.container h1{
+    font-size: 80px;
+    font-family: 'Fredoka', sans-serif;
+}
+.container input{
+    width: 80%;
+    font-size: 20px;
+    padding: 2%;
+    border-radius: 20px;
+    margin: 2%;
+}
+.submit{
+    background: transparent;
+    border-radius: 20px;
+    width: 30%;
+    font-family: 'Fredoka', sans-serif;
+    padding: 2%;
+    margin: 2%;
+    font-size: 15px;
+    outline: none;
+}
+
+.container span{
+    font-family: 'Fredoka', sans-serif;
+    font-size: 20px;
+    font-weight: 500 !important;
+}
+.star{
+    height: 50px;
+    width: 50px;
+}
+.btn{
+    background: transparent !important;
+    border: none;
+    outline: none;
+}
+.displayNone{
+    display: none;
+}
+.container textarea{
+    margin-top: 2%;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 17px;
+}
+.submit:hover{
+    background: #0E3C9A;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+}
+.container h6{
+    font-family: 'Fredoka', sans-serif;
+    font-size: 30px;
+}
